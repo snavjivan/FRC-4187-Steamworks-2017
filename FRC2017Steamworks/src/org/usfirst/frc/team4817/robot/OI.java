@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4817.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 
 import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
@@ -9,6 +10,20 @@ import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	Joystick stick1= new Joystick(0);
+	Joystick stick2= new Joystick (1);
+	
+	public double getLeftStick(){
+		if(Math.abs(getLeftStick())< 0.05)
+			return 0; 
+		return stick1.getY(); 
+	}
+	
+	public double getRightStick(){
+		if(Math.abs(getRightStick())< 0.05)
+			return 0; 
+		return stick2.getY(); 
+	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
