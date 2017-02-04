@@ -34,8 +34,8 @@ public class OI {
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
 	 Joystick stick = new Joystick(0);
-	 Button shooterOut = new JoystickButton(stick1, 1);
-	 Button shooterFix = new JoystickButton(stick1, 2);
+	 Button button1 = new JoystickButton(stick1, 1);
+	 Button button2 = new JoystickButton(stick1, 2);
 	 Button button3= new JoystickButton(stick1, 3); 
 			 
 
@@ -54,8 +54,6 @@ public class OI {
 	// Run the command while the button is being held down and interrupt it once
 	// the button is released.
 	// button.whileHeld(new ExampleCommand());
-	 shooterOut.whileHeld(new Shooter(0));
-	 shooterFix.whileHeld(new Shooter(1));
 
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
