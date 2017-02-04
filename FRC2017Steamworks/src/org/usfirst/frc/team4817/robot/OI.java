@@ -1,9 +1,9 @@
 package org.usfirst.frc.team4817.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
+//import edu.wpi.first.wpilibj.buttons.Button;
 
-import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
+//import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -13,6 +13,9 @@ public class OI {
 	Joystick stick1= new Joystick(0);
 	Joystick stick2= new Joystick (1);
 	
+	public OI(){
+		
+	}
 	public double getLeftStick(){
 		if(Math.abs(getLeftStick())< 0.05)
 			return 0; 

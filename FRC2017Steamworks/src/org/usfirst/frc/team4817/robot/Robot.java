@@ -6,10 +6,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4817.robot.commands.AutonomousDrive;
+//import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4817.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -24,12 +25,11 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final OI oi= new OI(); 
 	public static final RobotMap robotMap= new RobotMap(); 
-	/public static Drive drive= new Drive(); 
 	
 	RobotDrive driveBase;
 	Joystick left, right;
 
-	//Command autonomousCommand;
+	Command autonomousCommand;
 	//SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -38,13 +38,15 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		oi = new OI();
+		//oi = new OI();
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		//SmartDashboard.putData("Auto mode", chooser);
 		driveBase = new RobotDrive(0,1);
 		left = new Joystick(0);
-		right = new Joystick(1);
+    	right = new Joystick(1);
+		autonomousCommand= new AutonomousDrive();
+
 	}
 
 	/**
@@ -75,6 +77,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		autonomousCommand= new AutonomousDrive();
 		//autonomousCommand = chooser.getSelected();
 
 		/*
@@ -103,12 +106,9 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		//if (autonomousCommand != null)
-		//	autonomousCommand.cancel();
-		while (isOperatorControl() && isEnabled()) {
-			driveBase.tankDrive(left, right);
-			Timer.delay(.01);
-		}
+//		if (autonomousCommand != null)
+//			autonomousCommand.cancel();
+		
 	}
 
 	/**
@@ -117,6 +117,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		while (isOperatorControl() && isEnabled()) {
+			driveBase.tankDrive(left, right);
+			Timer.delay(.01);
+		}
 	}
 
 	/**
