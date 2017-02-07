@@ -1,10 +1,11 @@
 package org.usfirst.frc.team4817.robot.subsystems;
 
 import org.usfirst.frc.team4817.robot.RobotMap;
-//import org.usfirst.frc.team4817.robot.commands.JoystickDrive; 
+
+//import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive; 
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+//import edu.wpi.first.wpilibj.Spark;
 /**
  *
  */
@@ -27,7 +28,7 @@ public class Drive extends Subsystem {
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
- //       setDefaultCommand(new JoystickDrive());
+  //      setDefaultCommand(new Joystick());
     }
 }
 

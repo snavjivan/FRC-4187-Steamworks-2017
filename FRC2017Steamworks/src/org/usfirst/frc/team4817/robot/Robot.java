@@ -8,12 +8,15 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.Spark;
 //import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Talon;
 
 import org.usfirst.frc.team4817.robot.commands.AutonomousDrive;
 //import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4817.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4817.robot.subsystems.Shooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,10 +29,13 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final OI oi= new OI(); 
-	public static final RobotMap robotMap= new RobotMap(); 
+	public static final RobotMap robotMap = new RobotMap(); 
 	
 	RobotDrive driveBase;
 	Joystick left, right;
+	Spark rightDrive;
+	Talon leftDrive;
+	public static Shooter shooter = new Shooter();
 
 	Command autonomousCommand;
 	//SendableChooser<Command> chooser = new SendableChooser<>();
@@ -44,12 +50,12 @@ public class Robot extends IterativeRobot {
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		//SmartDashboard.putData("Auto mode", chooser);
-		driveBase = new RobotDrive(0,1);
+		driveBase = new RobotDrive(leftDrive, rightDrive);
 		left = new Joystick(0);
     	right = new Joystick(1);
 		autonomousCommand= new AutonomousDrive();
 		autonomousCommand.start();
-
+		
 	}
 
 	/**
@@ -80,7 +86,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand= new AutonomousDrive();
+		autonomousCommand.start();
 		//autonomousCommand = chooser.getSelected();
 
 		/*

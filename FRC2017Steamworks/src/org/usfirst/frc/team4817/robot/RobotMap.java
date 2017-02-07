@@ -11,6 +11,7 @@ public class RobotMap {
 	// following variables to use with your drivetrain subsystem.
 	 public static int driveLeftMotor = 0; //check that these are the right ports
 	 public static int driveRightMotor = 1; //sparks 
+	 public static int shooterMotor= 2; // shooter motor 
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
