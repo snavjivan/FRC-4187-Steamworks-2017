@@ -1,13 +1,10 @@
 package org.usfirst.frc.team4817.robot;
 
 import org.usfirst.frc.team4817.robot.commands.ShooterCommand;
-//import org.usfirst.frc.team4817.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
-//import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -17,30 +14,27 @@ public class OI {
 	Joystick stick1= new Joystick(0);
 	Joystick stick2= new Joystick (1);
 	
-	Joystick stick = new Joystick(0);
-	Button shooterForward = new JoystickButton(stick1, 1); //set either int= 0 or 1 for motor direction
-	Button shooterBackward = new JoystickButton(stick1, 2);
+	Button shooterForward = new JoystickButton(stick2, 1); //set either int= 0 or 1 for motor direction
+	Button shooterBackward = new JoystickButton(stick2, 2);
 	
 	public double getLeftStick(){
-		if(Math.abs(getLeftStick())< 0.05)
+		if(Math.abs(stick1.getY())< 0.05)
 			return 0; 
 		return stick1.getY(); 
 	}
 	
 	public double getRightStick(){
-		if(Math.abs(getRightStick())< 0.05)
+		if(Math.abs(stick2.getY())< 0.05)
 			return 0; 
 		return stick2.getY(); 
 	}
 	
-	public OI(){
-		
+	public OI(){	
 		shooterForward.whenPressed(new ShooterCommand(1));
 		shooterBackward.whenPressed(new ShooterCommand(2));
 		
 		shooterForward.whenReleased(new ShooterCommand(0));
 		shooterBackward.whenReleased(new ShooterCommand(0));
-		
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a

@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ShooterCommand extends Command {
-	
 	public int direction;
 
     public ShooterCommand(int x) {
@@ -28,12 +27,13 @@ public class ShooterCommand extends Command {
     	
     	if(direction == 1) {
     		Robot.shooter.shooterForward();
-    	} else if (direction == 2) {
+    	} 
+    	else if (direction == 2) {
     		Robot.shooter.shooterBackward();
-    	} else {
+    	} 
+    	else {
     		Robot.shooter.shooterOff();
     	}
-    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

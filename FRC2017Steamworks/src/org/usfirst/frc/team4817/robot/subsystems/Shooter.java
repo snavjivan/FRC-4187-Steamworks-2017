@@ -10,10 +10,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Shooter extends Subsystem {
 	
-	public Talon shooter= new Talon (RobotMap.shooterMotor);
+	Talon shooter;
 	
 	public Shooter(){
 		super ("Shooter"); 
+		shooter= new Talon(RobotMap.shooterMotor);
 	}
 	
 	public void shooterForward() {

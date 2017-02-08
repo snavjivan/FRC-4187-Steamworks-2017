@@ -2,19 +2,13 @@
 package org.usfirst.frc.team4817.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.Spark;
-//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.Talon;
 
 import org.usfirst.frc.team4817.robot.commands.AutonomousDrive;
-//import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4817.robot.subsystems.Drive;
 import org.usfirst.frc.team4817.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4817.robot.subsystems.Shooter;
 
@@ -28,17 +22,15 @@ import org.usfirst.frc.team4817.robot.subsystems.Shooter;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static final OI oi= new OI(); 
+	public static OI oi;
 	public static final RobotMap robotMap = new RobotMap(); 
 	
+	
 	RobotDrive driveBase;
-	Joystick left, right;
-	Spark rightDrive;
-	Talon leftDrive;
-	public static Shooter shooter = new Shooter();
+	public static final Shooter shooter = new Shooter();
+	public static final Drive drive = new Drive();
 
 	Command autonomousCommand;
-	//SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -46,16 +38,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		//oi = new OI();
-		//chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		//SmartDashboard.putData("Auto mode", chooser);
-		driveBase = new RobotDrive(leftDrive, rightDrive);
-		left = new Joystick(0);
-    	right = new Joystick(1);
 		autonomousCommand= new AutonomousDrive();
-		autonomousCommand.start();
-		
+		oi= new OI(); 
 	}
 
 	/**
@@ -86,7 +70,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand.start();
+        if (autonomousCommand != null) autonomousCommand.start();
 		//autonomousCommand = chooser.getSelected();
 
 		/*
@@ -115,9 +99,8 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
-		
+        if (autonomousCommand != null) autonomousCommand.cancel();
+		System.out.println("Teleop Init!");
 	}
 
 	/**
@@ -126,10 +109,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		while (isOperatorControl() && isEnabled()) {
-			driveBase.tankDrive(left, right);
-			Timer.delay(.01);
-		}
 	}
 
 	/**
