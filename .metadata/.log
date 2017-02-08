@@ -8507,3 +8507,33 @@ org.eclipse.epp.logging.aeri.core.util.Logs$LogTraceException
 
 !ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 20:04:42.216
 !MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 20:54:50.164
+!MESSAGE Running ant file: C:\Users\admin\Desktop\FRC-4187-Steamworks-2017\FRC2017Steamworks\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 20:54:50.164
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 20:55:44.404
+!MESSAGE Running ant file: C:\Users\admin\Desktop\FRC-4187-Steamworks-2017\FRC2017Steamworks\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 20:55:44.404
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 20:59:28.025
+!MESSAGE Running ant file: C:\Users\admin\Desktop\FRC-4187-Steamworks-2017\FRC2017Steamworks\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 20:59:28.025
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 20:59:53.037
+!MESSAGE Running ant file: C:\Users\admin\Desktop\FRC-4187-Steamworks-2017\FRC2017Steamworks\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 20:59:53.037
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 21:01:39.629
+!MESSAGE Running ant file: C:\Users\admin\Desktop\FRC-4187-Steamworks-2017\FRC2017Steamworks\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-02-08 21:01:39.630
+!MESSAGE Targets: deploy, Mode: run

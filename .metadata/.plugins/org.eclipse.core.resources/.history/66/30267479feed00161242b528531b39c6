@@ -6,7 +6,7 @@ import org.usfirst.frc.team4817.robot.commands.JoystickDrive;
 import edu.wpi.first.wpilibj.RobotDrive; 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Spark;
-//import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 
 
