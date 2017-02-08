@@ -1,5 +1,11 @@
 PROBLEMS_FILTERS_MIGRATE=true
+<<<<<<< Updated upstream
 eclipse.preferences.version=1
 platformState=1442451704602
+=======
+SAVE_ALL_BEFORE_BUILD=true
+eclipse.preferences.version=1
+platformState=1485269666203
+>>>>>>> Stashed changes
 quickStart=false
 tipsAndTricks=true
