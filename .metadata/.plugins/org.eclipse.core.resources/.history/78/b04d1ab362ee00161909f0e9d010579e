@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4817.robot.subsystems;
 
-
 import org.usfirst.frc.team4817.robot.RobotMap;
 import org.usfirst.frc.team4817.robot.commands.JoystickDrive;
 

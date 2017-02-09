@@ -3,11 +3,11 @@ package org.usfirst.frc.team4817.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
-//import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-//import org.usfirst.frc.team4817.robot.commands.AutonomousDrive;
+import org.usfirst.frc.team4817.robot.commands.AutonomousDrive;
 import org.usfirst.frc.team4817.robot.subsystems.Drive;
 import org.usfirst.frc.team4817.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4817.robot.subsystems.Shooter;
