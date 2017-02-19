@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team4817.robot.commands.AutonomousDrive;
 //import org.usfirst.frc.team4817.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4817.robot.subsystems.ExampleSubsystem;
-
+import org.usfirst.frc.team4817.robot.RobotMap;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -23,9 +23,9 @@ import org.usfirst.frc.team4817.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static final OI oi= new OI(); 
-	public static final RobotMap robotMap= new RobotMap(); 
-	
+	public static final OI oi= new OI();
+	public static final RobotMap robotMap= new RobotMap();
+
 	RobotDrive driveBase;
 	Joystick left, right;
 
@@ -38,15 +38,14 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		//oi = new OI();
-		//chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		//SmartDashboard.putData("Auto mode", chooser);
-		driveBase = new RobotDrive(0,1);
+    // Change the values if needed, but replicate this on the Drive command/subsytem whichever file it is
+    // Follow my example. Change back the values in the RobotMap to integers.
+		SpeedController rightMotor = new Spark(RobotMap.driveLeftMotor);
+		SpeedController leftMotor = new Talon(RobotMap.driveRightMotor);
+		driveBase = new RobotDrive(leftMotor, rightMotor);
 		left = new Joystick(0);
-    	right = new Joystick(1);
+    right = new Joystick(1);
 		autonomousCommand= new AutonomousDrive();
-
 	}
 
 	/**
@@ -108,7 +107,7 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 //		if (autonomousCommand != null)
 //			autonomousCommand.cancel();
-		
+
 	}
 
 	/**
