@@ -1,7 +1,5 @@
 package org.usfirst.frc.team4817.robot.commands;
 import org.usfirst.frc.team4817.robot.Robot;
-
-//import org.usfirst.frc.team4817.robot.Robot; 
 import edu.wpi.first.wpilibj.command.Command;
 
 public class AutonomousDrive extends Command {

@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4817.robot;
 
+import org.usfirst.frc.team4817.robot.commands.ClimberCommand;
+import org.usfirst.frc.team4817.robot.commands.HopperCommand;
 import org.usfirst.frc.team4817.robot.commands.ShooterCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -16,6 +18,9 @@ public class OI {
 	
 	Button shooterForward = new JoystickButton(stick2, 1); //set either int= 0 or 1 for motor direction
 	Button shooterBackward = new JoystickButton(stick2, 2);
+	Button climberUp= new JoystickButton(stick2, 3); 
+	Button climberDown= new JoystickButton(stick2, 4);
+	Button hopperPop = new JoystickButton(stick1, 1);
 	
 	public double getLeftStick(){
 		if(Math.abs(stick1.getY())< 0.05)
@@ -28,6 +33,7 @@ public class OI {
 			return 0; 
 		return stick2.getY(); 
 	}
+
 	
 	public OI(){	
 		shooterForward.whenPressed(new ShooterCommand(1));
@@ -35,6 +41,15 @@ public class OI {
 		
 		shooterForward.whenReleased(new ShooterCommand(0));
 		shooterBackward.whenReleased(new ShooterCommand(0));
+		
+		climberUp.whenPressed(new ClimberCommand(1));
+		climberDown.whenPressed(new ClimberCommand(2));
+		
+		climberUp.whenReleased(new ClimberCommand(0));
+		climberDown.whenReleased(new ClimberCommand(0));
+		
+		hopperPop.whenPressed(new HopperCommand(1));
+		hopperPop.whenReleased(new HopperCommand(2));
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
